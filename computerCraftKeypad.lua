@@ -146,7 +146,7 @@ while true do
         currentPin = currentPin..tostring(curInput)
         writeCyan(touchX,touchY,tostring(curInput))
         write(padPos[1],padPos[2]-1,currentPin)
-        if speaker then
+        if sound and speaker then
             speaker.playNote("bit",2,12)
         end
         if #currentPin == #correctPin then
@@ -154,7 +154,7 @@ while true do
                 clear()
                 writePad(padPos)
                 writeCyan(padPos[1],padPos[2]-1,currentPin)
-                if speaker then
+                if sound and speaker then
                     speaker.playNote("bit",2,24)
                 end
                 os.sleep(.15)
@@ -165,7 +165,7 @@ while true do
                 clear()
                 writePad(padPos)
                 writeCyan(padPos[1],padPos[2]-1,currentPin)
-                if speaker then
+                if sound and speaker then
                     speaker.playNote("bit",2,24)
                 end
                 os.sleep(.15)
@@ -183,7 +183,7 @@ while true do
                 clear()
                 writePad(padPos)
                 writeRed(padPos[1],padPos[2]-1,currentPin)
-                if speaker then
+                if sound and speaker then
                     speaker.playNote("bit",2,1)
                 end
                 os.sleep(.15)
@@ -193,7 +193,7 @@ while true do
                 os.sleep(.15)
                 writePad(padPos)
                 writeRed(padPos[1],padPos[2]-1,currentPin)
-                if speaker then
+                if sound and speaker then
                     speaker.playNote("bit",2,1)
                 end
                 os.sleep(.15)
