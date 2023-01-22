@@ -147,7 +147,7 @@ while true do
         writeCyan(touchX,touchY,tostring(curInput))
         write(padPos[1],padPos[2]-1,currentPin)
         if speaker then
-            speaker.playNote("bit",2,24)
+            speaker.playNote("bit",2,12)
         end
         if #currentPin == #correctPin then
             if currentPin == correctPin then
