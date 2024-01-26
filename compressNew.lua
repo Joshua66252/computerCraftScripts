@@ -45,37 +45,13 @@ while true do
 			local ItemCount=Item["count"]
 			local CraftCount = ItemCount/9
 			CraftCount = math.floor(CraftCount)
-			while CraftCount ~= 0 do
+			if CraftCount ~= 0 then
 				compressStack(CraftCount)
-				local largest = 0
 				for i=1,16 do
-					local Item0=turtle.getItemDetail(i)
-					if Item0 then
-						local num = getNumber(Item0["name"])
-						if num > largest then
-							largest = num
-						end
-					end
-				end
-				for i=1,16 do
-					local Item0=turtle.getItemDetail(i)
-					if Item0 then
-						local num = getNumber(Item0["name"])
-						if num < largest then
-							turtle.select(i)
-							turtle.drop()
-						end
-					end
-				end
-				for i=2,16 do
 					turtle.select(i)
-					turtle.transferTo(1)
+					turtle.drop()
 				end
 				turtle.select(1)
-				Item = turtle.getItemDetail()
-				ItemCount=Item["count"]
-				CraftCount = ItemCount/9
-				CraftCount = math.floor(CraftCount)
 			end
 		end
 		turtle.turnLeft()
