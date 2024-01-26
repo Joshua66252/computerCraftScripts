@@ -38,6 +38,7 @@ local validItems = {
 }
 while true do
 	sleep(1)
+	local turn = true
 	turtle.suck()
 	if turtle.getItemCount() > 0 then
 		local Item = turtle.getItemDetail()
@@ -52,16 +53,19 @@ while true do
 					turtle.drop()
 				end
 				turtle.select(1)
+				turn = false
 			end
 		end
-		turtle.turnLeft()
-		turtle.turnLeft()
-		for i=1,16 do
-			turtle.select(i)
-			turtle.drop()
+		if turn then
+			turtle.turnLeft()
+			turtle.turnLeft()
+			for i=1,16 do
+				turtle.select(i)
+				turtle.drop()
+			end
+			turtle.select(1)
+			turtle.turnLeft()
+			turtle.turnLeft()
 		end
-		turtle.select(1)
-		turtle.turnLeft()
-		turtle.turnLeft()
 	end
 end
